@@ -1,14 +1,14 @@
 package com.jay.mapper;
 
 import com.jay.entity.Student;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by xiang.wei on 2019/4/20
  *
  * @author xiang.wei
  */
-@Component
+@Repository
 public interface StudentMapper {
 
     /**
