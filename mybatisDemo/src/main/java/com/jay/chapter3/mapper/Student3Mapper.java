@@ -1,6 +1,6 @@
 package com.jay.chapter3.mapper;
 
-import com.jay.chapter2.entity.Student;
+import com.jay.chapter3.entity.Student;
 import org.apache.ibatis.annotations.Param;
 
 /**

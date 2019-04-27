@@ -279,7 +279,7 @@ public final class TypeHandlerRegistry {
   }
 
   //
-  // REGISTER CLASS
+  // REGISTER CLASSN
   //
 
   // Only handler type
@@ -302,6 +302,7 @@ public final class TypeHandlerRegistry {
           Set<Class<? extends Class<?>>> mTypes = resolverUtil.getClasses();
           for (Class<? extends Class<?>> javaTypeClass : mTypes) {
             register(javaTypeClass,typeHandlerClass);
+            mappedTypeFound = true;
           }
         }
       }

@@ -12,7 +12,7 @@
         <association property="classRoom" javaType="ClassRoom">
             <id property="id" column="id"/>
             <result property="name" column="name"/>
-            <result property="ClassTypeEnum" column="class_type"/>
+            <result property="classTypeEnum" column="class_type"/>
         </association>
     </resultMap>
 

@@ -1,4 +1,4 @@
-package com.jay.chapter3.enums;
+package com.jay.chapter3;
 
 /**
  * 万能的转化模板

@@ -1,5 +1,7 @@
 package com.jay.chapter3.enums;
 
+import com.jay.chapter3.BaseEnum;
+
 import java.util.HashMap;
 import java.util.Map;
 

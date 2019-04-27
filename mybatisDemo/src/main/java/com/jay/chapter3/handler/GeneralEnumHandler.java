@@ -1,6 +1,6 @@
-package com.jay.chapter3.Handler;
+package com.jay.chapter3.handler;
 
-import com.jay.chapter2.enums.BaseEnum;
+import com.jay.chapter3.BaseEnum;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.MappedTypes;
@@ -27,7 +27,7 @@ public class GeneralEnumHandler<E extends BaseEnum> extends BaseTypeHandler<E> {
         this.enums = type.getEnumConstants();
         if (enums == null) {
             throw new IllegalArgumentException(type.getSimpleName()
-                    + "does not represent an enum type.");
+                    + " does not represent an enum type.");
         }
     }
 

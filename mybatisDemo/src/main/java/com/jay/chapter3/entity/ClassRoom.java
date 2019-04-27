@@ -31,4 +31,14 @@ public class ClassRoom {
      *
      */
     private ClassTypeEnum classTypeEnum;
+
+    @Override
+    public String toString() {
+        return "ClassRoom{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", classType='" + classType + '\'' +
+                ", classTypeEnum=" + classTypeEnum.toString() +
+                '}';
+    }
 }

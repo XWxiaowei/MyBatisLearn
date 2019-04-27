@@ -1,6 +1,6 @@
 package com.jay.chapter3;
 
-import com.jay.chapter2.entity.Student;
+import com.jay.chapter3.entity.Student;
 import com.jay.chapter3.mapper.Student3Mapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

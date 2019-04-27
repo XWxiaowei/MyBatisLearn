@@ -11,11 +11,11 @@
     <typeAliases>
         <typeAlias type="com.jay.chapter3.entity.ClassRoom" alias="ClassRoom"/>
         <typeAlias type="com.jay.chapter3.entity.Student" alias="Student"/>
-        <typeAlias type="com.jay.chapter3.Handler.GeneralEnumHandler" alias="GeneralEnumHandler"/>
+        <typeAlias type="com.jay.chapter3.handler.GeneralEnumHandler" alias="GeneralEnumHandler"/>
     </typeAliases>
 
     <typeHandlers>
-        <package name="com.jay.chapter3.enums"/>
+        <package name="com.jay.chapter3.handler"/>
     </typeHandlers>
 
     <!-- 设置一个默认的连接环境信息 -->
