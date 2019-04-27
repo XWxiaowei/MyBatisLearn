@@ -16,13 +16,6 @@ public enum SexEnum implements BaseEnum<SexEnum, String> {
     private String key;
     private String value;
 
-    final static Map<String, SexEnum> SEX_MAP = new HashMap<>();
-
-    static {
-        for (SexEnum sexEnums : SexEnum.values()) {
-            SEX_MAP.put(sexEnums.key, sexEnums);
-        }
-    }
 
     SexEnum(String key, String value) {
         this.key = key;
@@ -38,9 +31,6 @@ public enum SexEnum implements BaseEnum<SexEnum, String> {
         return value;
     }
 
-    public static SexEnum getEnums(String key) {
-        return SEX_MAP.get(key);
-    }
 
     @Override
     public String toString() {

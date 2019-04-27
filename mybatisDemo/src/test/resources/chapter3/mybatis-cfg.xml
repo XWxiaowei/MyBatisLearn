@@ -17,6 +17,9 @@
     <typeHandlers>
         <package name="com.jay.chapter3.handler"/>
     </typeHandlers>
+    <!--<typeHandlers>-->
+        <!--<typeHandler handler="com.jay.chapter3.handler.GeneralEnumHandler" javaType="com.jay.chapter3.enums.SexEnum"/>-->
+    <!--</typeHandlers>-->
 
     <!-- 设置一个默认的连接环境信息 -->
     <environments default="development">

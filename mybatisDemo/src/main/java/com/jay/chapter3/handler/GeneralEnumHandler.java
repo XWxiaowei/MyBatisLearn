@@ -11,14 +11,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * @author xiang.wei
+ *
+ * @author jay.wei
  * @create 2019/4/18 14:04
  */
+// 所有的自定义类型处理器都需要实现TypeHandler或者继承BaseTypeHandler类。
 @MappedTypes(basePackage = {"com.jay.chapter3.enums"})
 public class GeneralEnumHandler<E extends BaseEnum> extends BaseTypeHandler<E> {
     private Class<E> type;
     private E[] enums;
 
+    /**
+     * 定义构造器方便获取枚举类的属性
+     * @param type
+     */
     public GeneralEnumHandler(Class<E> type) {
         if (type == null) {
             throw new IllegalArgumentException("Type argument cannot be null");
@@ -31,6 +37,7 @@ public class GeneralEnumHandler<E extends BaseEnum> extends BaseTypeHandler<E> {
         }
     }
 
+    //设置参数到preparedStatement
     @Override
     public void setNonNullParameter(PreparedStatement preparedStatement, int i, E e, JdbcType jdbcType) throws SQLException {
         if (jdbcType == null) {
@@ -40,6 +47,7 @@ public class GeneralEnumHandler<E extends BaseEnum> extends BaseTypeHandler<E> {
         }
     }
 
+    //根据ResultSet返回的key,找到其对应的enum
     @Override
     public E getNullableResult(ResultSet resultSet, String s) throws SQLException {
         if (resultSet.wasNull()) {
@@ -68,6 +76,7 @@ public class GeneralEnumHandler<E extends BaseEnum> extends BaseTypeHandler<E> {
     }
 
     /**
+     *
      * @param key
      * @return
      */

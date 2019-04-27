@@ -288,7 +288,7 @@ public final class TypeHandlerRegistry {
     boolean mappedTypeFound = false;
     MappedTypes mappedTypes = typeHandlerClass.getAnnotation(MappedTypes.class);
     if (mappedTypes != null) {
-      if (mappedTypes.basePackage().length > 0) {
+      if (mappedTypes.value().length > 0) {
         for (Class<?> javaTypeClass : mappedTypes.value()) {
           register(javaTypeClass, typeHandlerClass);
           mappedTypeFound = true;
