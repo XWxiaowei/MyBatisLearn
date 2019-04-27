@@ -1,26 +1,22 @@
 /*
- Navicat MySQL Data Transfer
+Navicat MySQL Data Transfer
 
- Source Server         : localhost
- Source Server Type    : MySQL
- Source Server Version : 50718
- Source Host           : localhost
- Source Database       : mybatisdemo
+Source Server         : 本地数据库
+Source Server Version : 50717
+Source Host           : localhost:3306
+Source Database       : mybatisdemo
 
- Target Server Type    : MySQL
- Target Server Version : 50718
- File Encoding         : utf-8
+Target Server Type    : MYSQL
+Target Server Version : 50717
+File Encoding         : 65001
 
- Date: 04/16/2019 08:10:38 AM
+Date: 2019-04-26 10:17:27
 */
-CREATE DATABASE mybatisdemo;
-USE  mybatisdemo;
 
-SET NAMES utf8;
-SET FOREIGN_KEY_CHECKS = 0;
+SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
---  Table structure for `bounter`
+-- Table structure for `bounter`
 -- ----------------------------
 DROP TABLE IF EXISTS `bounter`;
 CREATE TABLE `bounter` (
@@ -32,14 +28,12 @@ CREATE TABLE `bounter` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
---  Records of `bounter`
+-- Records of bounter
 -- ----------------------------
-BEGIN;
 INSERT INTO `bounter` VALUES ('1', '小明', '这是小明，数据库1', '20180906161706');
-COMMIT;
 
 -- ----------------------------
---  Table structure for `class`
+-- Table structure for `class`
 -- ----------------------------
 DROP TABLE IF EXISTS `class`;
 CREATE TABLE `class` (
@@ -49,32 +43,31 @@ CREATE TABLE `class` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
---  Records of `class`
+-- Records of class
 -- ----------------------------
-BEGIN;
-INSERT INTO `class` VALUES ('1', '一班'), ('2', '二班');
-COMMIT;
+INSERT INTO `class` VALUES ('1', '一班');
+INSERT INTO `class` VALUES ('2', '二班');
 
 -- ----------------------------
---  Table structure for `classroom`
+-- Table structure for `classroom`
 -- ----------------------------
 DROP TABLE IF EXISTS `classroom`;
 CREATE TABLE `classroom` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `class_id` int(11) DEFAULT NULL,
-  `student_id` int(11) DEFAULT NULL,
+  `class_type` varchar(2) COLLATE utf8_bin DEFAULT NULL COMMENT '班级类型;0,差班；1,好班',
+  `name` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '班级名称',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
---  Records of `classroom`
+-- Records of classroom
 -- ----------------------------
-BEGIN;
-INSERT INTO `classroom` VALUES ('1', '1', '1'), ('2', '1', '2'), ('3', '2', '3'), ('4', '2', '4');
-COMMIT;
+INSERT INTO `classroom` VALUES ('1', '1', '0', '一班');
+INSERT INTO `classroom` VALUES ('2', '1', '1', '二班');
 
 -- ----------------------------
---  Table structure for `student`
+-- Table structure for `student`
 -- ----------------------------
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE `student` (
@@ -84,17 +77,19 @@ CREATE TABLE `student` (
   `class_id` varchar(10) COLLATE utf8_bin DEFAULT NULL COMMENT '班级id',
   `sex` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '性别  0：男性；1：女性',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
---  Records of `student`
+-- Records of student
 -- ----------------------------
-BEGIN;
-INSERT INTO `student` VALUES ('1', '点点', '16', '1', '0'), ('2', '平平', '16', '1', '0'), ('3', '美美', '16', '1', '1'), ('4', '团团', '16', '1', '1'), ('5', '张三', '12', '2', '1');
-COMMIT;
+INSERT INTO `student` VALUES ('1', '点点', '16', '1', '0');
+INSERT INTO `student` VALUES ('2', '平平', '16', '1', '0');
+INSERT INTO `student` VALUES ('3', '美美', '16', '1', '1');
+INSERT INTO `student` VALUES ('4', '团团', '16', '1', '1');
+INSERT INTO `student` VALUES ('5', '张三', '12', '2', '1');
 
 -- ----------------------------
---  Table structure for `user`
+-- Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -105,14 +100,12 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
---  Records of `user`
+-- Records of user
 -- ----------------------------
-BEGIN;
 INSERT INTO `user` VALUES ('1', 'tomcat', 'isthispassword');
-COMMIT;
 
 -- ----------------------------
---  Table structure for `users`
+-- Table structure for `users`
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -122,13 +115,9 @@ CREATE TABLE `users` (
   `user_sex` varchar(32) DEFAULT NULL,
   `nick_name` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
---  Records of `users`
+-- Records of users
 -- ----------------------------
-BEGIN;
 INSERT INTO `users` VALUES ('1', '小明', '123456', 'MAN', '小明昵称');
-COMMIT;
-
-SET FOREIGN_KEY_CHECKS = 1;
