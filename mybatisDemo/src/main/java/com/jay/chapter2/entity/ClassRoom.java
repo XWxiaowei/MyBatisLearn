@@ -25,4 +25,18 @@ public class ClassRoom {
      *
      */
     private List<Student> studentList;
+    /**
+     * 班级类型
+     */
+    private String classType;
+
+    @Override
+    public String toString() {
+        return "ClassRoom{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", studentList=" + studentList +
+                ", classType='" + classType + '\'' +
+                '}';
+    }
 }
