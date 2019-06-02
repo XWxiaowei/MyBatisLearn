@@ -8,6 +8,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -31,5 +34,35 @@ public class MyBatisTest3 {
             e.printStackTrace();
         }
 
+    }
+
+    @Test
+    public void  testSelectName() {
+        String resource = "chapter3/mybatis-cfg.xml";
+        try {
+            InputStream inputStream = Resources.getResourceAsStream(resource);
+            SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
+            SqlSession session = factory.openSession();
+            Student3Mapper mapper = session.getMapper(Student3Mapper.class);
+            Student student = mapper.selectStudentByNameAngAge("'张三'; DELETE FROM student;#",12);
+            System.out.println("------->student={}"+student);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void  testSelectNameSQLzhuru() {
+        String resource = "chapter3/mybatis-cfg.xml";
+        try {
+            InputStream inputStream = Resources.getResourceAsStream(resource);
+            SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
+            SqlSession session = factory.openSession();
+            Student3Mapper mapper = session.getMapper(Student3Mapper.class);
+            Student student = mapper.selectStudentByNameAngAge("'张三'; DELETE FROM student;#",12);
+            System.out.println("------->student={}"+student);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

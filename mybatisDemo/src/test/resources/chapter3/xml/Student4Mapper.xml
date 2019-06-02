@@ -21,4 +21,8 @@
         WHERE s.class_id=c.id AND s.id=#{id}
     </select>
 
+    <select id="selectStudentByNameAngAge" resultType="Student">
+        SELECT s.id,s.`name`,s.age,s.sex FROM student s
+        WHERE s.name=#{name} AND s.age=#{age}
+    </select>
 </mapper>

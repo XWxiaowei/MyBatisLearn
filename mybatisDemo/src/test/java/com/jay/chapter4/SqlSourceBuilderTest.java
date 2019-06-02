@@ -7,6 +7,7 @@ import org.apache.ibatis.session.Configuration;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by xiang.wei on 2019/5/13
@@ -18,9 +19,12 @@ public class SqlSourceBuilderTest {
     @Test
     public void test() {
 //        带有复杂#{}占位符的参数，接下来会解析这个占位符
-        String sql = "SELECT * FROM Author WHERE age=#{age,javaType=int,jdbcType=NUMERIC}";
+        String sql = "SELECT * FROM Author WHERE age=#{age} AND name=#{name}";
         SqlSourceBuilder sqlSourceBuilder = new SqlSourceBuilder(new Configuration());
-        SqlSource sqlSource = sqlSourceBuilder.parse(sql, Author.class, new HashMap<>());
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("age",12);
+        paramMap.put("name", "张三");
+        SqlSource sqlSource = sqlSourceBuilder.parse(sql, Author.class, paramMap);
 
         BoundSql boundSql = sqlSource.getBoundSql(new Author());
 

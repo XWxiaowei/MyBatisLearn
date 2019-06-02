@@ -15,4 +15,7 @@ public interface Student3Mapper {
      * @return
      */
     Student selectStudentById(@Param("id") Integer id);
+
+    Student selectStudentByNameAngAge(@Param("name") String name,
+                                      @Param("age") Integer age);
 }
