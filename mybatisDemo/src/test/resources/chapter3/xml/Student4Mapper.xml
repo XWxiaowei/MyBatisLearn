@@ -25,4 +25,8 @@
         SELECT s.id,s.`name`,s.age,s.sex FROM student s
         WHERE s.name=#{name} AND s.age=#{age}
     </select>
+    <select id="selectStudentByNameZhuru" resultType="Student">
+        SELECT s.id,s.`name`,s.age,s.sex FROM student s
+        WHERE s.name=${name}
+    </select>
 </mapper>

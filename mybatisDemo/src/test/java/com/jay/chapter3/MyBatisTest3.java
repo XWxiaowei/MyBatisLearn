@@ -59,7 +59,7 @@ public class MyBatisTest3 {
             SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
             SqlSession session = factory.openSession();
             Student3Mapper mapper = session.getMapper(Student3Mapper.class);
-            Student student = mapper.selectStudentByNameAngAge("'张三'; DELETE FROM student;#",12);
+            Student student = mapper.selectStudentByNameZhuru("'张三'; delete from student;#");
             System.out.println("------->student={}"+student);
         } catch (IOException e) {
             e.printStackTrace();

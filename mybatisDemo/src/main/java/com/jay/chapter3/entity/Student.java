@@ -33,7 +33,7 @@ public class Student {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                ", classId='" + classId + '\'' +
+//                ", classId='" + classId + '\'' +
                 ", sexEnum=" + sexEnum.toString() +
                 ", classRoom=" + classRoom +
                 '}';
